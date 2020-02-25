@@ -1,29 +1,29 @@
 #######################################  MODIFY AS NEEDED BELOW  ###########################################################################
                     
 #Local Account to Modify
-$account = "Kids"
+$account = "Newbs"
 
 #Remote PC1 ComputerName, Admin Account, Account to modify, Admin Account, Credentials
-$RPC1 = "BOYSPC"
-$RPC1admin = "DADMIN"
-$RPC1pass = "Get-Content F:\Utilities\Kids-Pass\Creds\BOYSPC_creds.securestring | ConvertTo-SecureString"
-$RPC1account = "boys"
+$RPC1 = "NewbPC"
+$RPC1admin = "Boss"
+$RPC1pass = "Get-Content C:\Kids-Pass\Creds\RPC1.securestring | ConvertTo-SecureString"
+$RPC1account = "Newbs"
                  
 #Password List File Name ENSURE IT RESIDES IN CREDS DIRECTORY ($listdir)
 $listfile = "pass-list.txt"
 
 #Directory for Creds
-$listdir = "F:\Utilities\Kids-Pass\Creds"
+$listdir = "C:\Utilities\Kids-Pass\Creds"
                    
 #Gmail SMTP Settings
 $emailserver = "smtp.gmail.com"
 $emailport = "587"
                    
 #From & Cc Email Address
-$email1 = "BlitzzXC@gmail.com"
+$email1 = "bob@gmail.com"
                     
 #To Email Address
-$email2 = "Samanthamccoy88@gmail.com"
+$email2 = "tom@gmail.com"
 
 #Lock Local System
 $xCmdString = {C:\Windows\System32\rundll32.exe user32.dll,LockWorkStation}
