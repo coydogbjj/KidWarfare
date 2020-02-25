@@ -42,7 +42,7 @@ $daypart = $tomorrow.Day
                                     
 #Static Variables
 $newpassword = Get-Content $listdir\$listfile | Get-Random
-$securepass = Get-Content "$listdir\BlitzzXC@gmail.com.securestring" | ConvertTo-SecureString
+$securepass = Get-Content "$listdir\bob@gmail.com.securestring" | ConvertTo-SecureString
 $emailcreds = New-Object -TypeName System.Management.Automation.PSCredential -ArgumentList $email1,$securepass
                     
 #Email Template
@@ -53,12 +53,13 @@ $subject = "$account Password Change"
 #Change pass on local system
 PowerShell -NoProfile -Command "& {Start-Process PowerShell -ArgumentList '-NoProfile net user $account "$newpassword"' -Verb RunAs}" 
 #Change pass on remote system
-F:\Utilities\Kids-Pass\Creds\pspasswd64.exe \\$RPC1 -u $RPC1admin -p $RPC1pass -nobanner $RPC1account $newpassword
+C:\Utilities\Kids-Pass\Creds\pspasswd64.exe \\$RPC1 -u $RPC1admin -p $RPC1pass -nobanner $RPC1account $newpassword
 #Email new pass
 Send-MailMessage -From $email1 -To $email2 -Cc $email1 -Credential $emailcreds -SmtpServer $emailserver -Port $emailport -UseSsl -Subject $subject -Body $body   
 #reboot remote system... kids get wreked
-F:\Utilities\Kids-Pass\Creds\psshutdown.exe -r -u $RPC1admin -p $RPC1pass \\$RPC1
-#Sleep for timing
+#really need to figure out why the "lock" switch does not work. Reboot is excessive.
+C:\Utilities\Kids-Pass\Creds\psshutdown.exe -r -u $RPC1admin -p $RPC1pass \\$RPC1
+#Sleep for timing, Lock & reboot occurs at the same time
 Start-Sleep -Seconds 20
 #Lock local system
 Invoke-Command $xCmdString
