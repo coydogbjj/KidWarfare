@@ -3,11 +3,11 @@
 #Local Account to Modify
 $account = "Newbs"
 
-#Remote PC1 ComputerName, Admin Account, Account to modify, Admin Account, Credentials
+#Remote PC1 ComputerName, Account to modify, Admin Account, Credentials
 $RPC1 = "NewbPC"
+$RPC1account = "Newbs"
 $RPC1admin = "Boss"
 $RPC1pass = "Get-Content C:\Kids-Pass\Creds\RPC1.securestring | ConvertTo-SecureString"
-$RPC1account = "Newbs"
                  
 #Password List File Name ENSURE IT RESIDES IN CREDS DIRECTORY ($listdir)
 $listfile = "pass-list.txt"
