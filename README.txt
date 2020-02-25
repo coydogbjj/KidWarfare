@@ -1,3 +1,7 @@
+FILE STRUCTURE =         [PARENT FOLDER] "Kids-Pass"         [CHILD FOLDER] "Creds"
+                                "Kids Reset.ps1"                 ALL OTHER FILES
+
+
 Run the following to create .securestring credential file:
 
 -Open PowerShell as Admin
